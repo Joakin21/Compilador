@@ -1,4 +1,29 @@
 import json
+import Tkinter, tkFileDialog
+from Tkinter import *
+
+root = Tkinter.Tk()
+root.title("Analizador Sint�ctico")
+root.geometry('800x600')
+
+def clicked():
+        file = tkFileDialog.askopenfile(parent=root,mode='rb',title='Elegir un archivo')
+        if file != None:
+            print file.name
+            data = file.read()
+            file.close()
+            print "I got %d bytes from this file." % len(data)
+
+btn = Button(root, text="Click Me", command=clicked)
+btn.grid(column=1, row=0)
+
+lbl = Label(root, text="asdsadsa")
+lbl.config(anchor=W)
+lbl.grid(column=1, row=2)
+
+salida = Label(root, text="sasdas")
+salida.config(anchor=W) 
+salida.grid(column=1, row=3)
 
 #Lectura de los tokens que se encuentran en el archivo
 with open('tokens.json') as json_file:
@@ -337,7 +362,9 @@ if programa_correcto:
 
 #instrucciones[0]["instruccion"] = []
 #print (instrucciones)
-	
+
+
+root.mainloop()
 """
 //explicación de la gramática
 
