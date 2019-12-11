@@ -1,0 +1,54 @@
+
+apachimuy tapuyAriq ;  //import sensor para medir volcan
+
+chitiripuy c = chaa ; //alerta verde 
+pachan a = tapuyAriq ;  // int a = nivel de probabilidad de erupcion
+
+// pachan t = 4 * 8 ;
+
+ari a == 20 {
+	c = karwa ; //alerta amarilla 
+}
+ari 2 >= 50 {
+	c = antipuka ; //alerta roja 
+}
+
+huknin mn = ( chiqap ) ; // boolean mn = true
+
+ari mn == chiqap {
+	mn = llulla ; // mn = false
+}
+
+h = ( 6 ) ;
+
+pasaqlla s = 2.5 ;
+
+ari c != antipuka { //Si alerta no sea roja 
+
+	rikhuchiy ( kakuy ) ; //imprime no evacuar pobacion
+
+
+}
+chayri {
+	
+	rikhuchiy ( anchuna ) ;
+
+}
+
+kawsachiy s <= 10 { // while true
+	
+	rikhuchiy ( kakuy ) ;
+	s = 20.89 ;
+
+}
+
+
+h = ( 4.5 + 7 ) * a ;
+
+jaykaxpax ( pachan i = 0 ;  i <= 10 ; i ++ ) { 
+
+	
+	pachan a = 65 ;
+	
+}
+
