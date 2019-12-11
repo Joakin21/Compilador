@@ -9,7 +9,30 @@ root.title("Analizador Sintactico")
 root.geometry("800x600")
 root.resizable(False, False)
 
+def create_window(archivo_codigo):
+            ventana_codigo = Tkinter.Tk()
+            ventana_codigo.title("Código")
+            ventana_codigo.geometry("600x800")
 
+            scrollbar = Tkinter.Scrollbar(ventana_codigo)
+            c = Tkinter.Canvas(ventana_codigo, yscrollcommand=scrollbar.set)
+            scrollbar.config(command=c.yview)
+            scrollbar.pack(side=Tkinter.RIGHT, fill=Tkinter.Y)
+            myframe = Tkinter.Frame(c)
+            c.pack(side="left", fill="both", expand=True)
+            c.create_window(0, 0, window=myframe, anchor="nw")
+            texto=Tkinter.Label(myframe, wraplength=600, text=archivo_codigo, anchor="w", justify=LEFT)
+            texto.pack()
+            ventana_codigo.update()
+            c.config(scrollregion=c.bbox("all"))
+            ventana_codigo.mainloop()
+            
+            #codigo = Label(ventana_codigo, bg="white", text="", justify=LEFT, anchor="w")
+            #codigo.grid(column=1, row=1)
+            #codigo.place(x=0, y=0, height=1100, width=1000)
+            #codigo.config(text=archivo_codigo)
+    
+            
 def clicked():
         file = tkFileDialog.askopenfile(parent=root,mode='rb',title='Elegir un archivo')
         abs_path = os.path.abspath(file.name)
@@ -21,6 +44,7 @@ def clicked():
             print "El archivo abierto pesa %d bytes." % len(data)
             lbl2.config(text=nombre_archivo)
             mainProgram()
+            create_window(data)
 
 btn = Button(text="Abrir archivo", command=clicked)
 btn.grid(column=1, row=0)
@@ -47,7 +71,7 @@ def returnEntry(arg=None):
     result = myEntry.get()
     resultLabel.config(text=result)
     myEntry.delete(0,END)
- 
+
 
 #-----------------------------------------------------------------------------------------------------------------
 
