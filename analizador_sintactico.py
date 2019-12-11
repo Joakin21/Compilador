@@ -1,29 +1,42 @@
+import os
 import json
 import Tkinter, tkFileDialog
 from Tkinter import *
 
 root = Tkinter.Tk()
-root.title("Analizador Sint�ctico")
-root.geometry('800x600')
+root.title("Analizador Sintactico")
+root.geometry("800x600")
 
 def clicked():
         file = tkFileDialog.askopenfile(parent=root,mode='rb',title='Elegir un archivo')
+        abs_path = os.path.abspath(file.name)
+        nombre_archivo = os.path.split(abs_path)[1]
+        print "Archivo abierto:", nombre_archivo
         if file != None:
-            print file.name
             data = file.read()
             file.close()
-            print "I got %d bytes from this file." % len(data)
+            print "El archivo abierto pesa %d bytes." % len(data)
+            salida.config(text=nombre_archivo)
 
-btn = Button(root, text="Click Me", command=clicked)
+btn = Button(text="Abrir archivo", command=clicked)
 btn.grid(column=1, row=0)
+btn.place(relx=0.2, rely=0.5, anchor=CENTER)
 
 lbl = Label(root, text="asdsadsa")
-lbl.config(anchor=W)
 lbl.grid(column=1, row=2)
 
-salida = Label(root, text="sasdas")
-salida.config(anchor=W) 
+salida = Label(root, text="")
 salida.grid(column=1, row=3)
+
+def returnEntry(arg=None):
+    """Gets the result from Entry and return it to the Label"""
+ 
+    result = myEntry.get()
+    resultLabel.config(text=result)
+    myEntry.delete(0,END)
+ 
+
+#-----------------------------------------------------------------------------------------------------------------
 
 #Lectura de los tokens que se encuentran en el archivo
 with open('tokens.json') as json_file:
@@ -366,11 +379,11 @@ if programa_correcto:
 
 root.mainloop()
 """
-//explicación de la gramática
+//explicacion de la gramatica
 
 
-//cómo funciona 
-//pseudocódigo
+//como funciona 
+//pseudocdigo
 
 """
 
