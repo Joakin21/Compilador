@@ -28,11 +28,13 @@ btn.place(relx=0.2, rely=0.5, anchor=CENTER)
 
 lbl = Label(root, text="Archivo abierto: ")
 lbl.grid(column=1, row=2)
+lbl.place(x=10, y=10)
 
 lbl2 = Label(root, text="No se ha abierto ningún archivo")
 lbl2.grid(column=2, row=2)
+lbl2.place(x=100, y=10)
 
-salida = Label(root, text="s")
+salida = Label(root, text="")
 salida.grid(column=1, row=3)
 
 
@@ -372,7 +374,8 @@ def mainProgram():
         def detallesError(instruccion):
                 print "asd"
                 alerta = "error de sintaxis en la linea", instruccion["linea"]
-                salida2.config(text=str(alerta))
+                alerta = alerta[0] + " " + str(alerta[1])
+                salida2.config(text=alerta)
                 #print("error de sintaxis en la linea", instruccion["linea"])
 
 
